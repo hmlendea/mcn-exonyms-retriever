@@ -3,6 +3,11 @@ const wikiDataBaseUrl = 'https://www.wikidata.org';
 const geoNamesBaseUrl = 'http://api.geonames.org';
 const geoNamesUsername = 'geonamesfreeaccountt';
 
+$(document).ready(function() {
+    $('#wikiDataId').val('Q20717572');
+    $('#location').val('');
+  });
+
 function isSingleElementArray(jsonObject, propertyName) {
     if (jsonObject.hasOwnProperty(propertyName) && Array.isArray(jsonObject[propertyName])) {
         return jsonObject[propertyName].length === 1;
@@ -188,9 +193,14 @@ function retrieveExonyms() {
 }
 
 function copyLocation() {
-    let copyText = document.getElementById("location");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
+    const clipboardContent = '\n' + $('#location').val();
 
-    document.execCommand("copy");
+    const tempTextarea = $('<textarea>');
+    tempTextarea.val(clipboardContent);
+
+    $('body').append(tempTextarea);
+    tempTextarea.select();
+    document.execCommand('copy');
+
+    tempTextarea.remove();
 }
