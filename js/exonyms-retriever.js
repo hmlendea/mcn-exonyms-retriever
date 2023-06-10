@@ -12,7 +12,7 @@ function isSingleElementArray(jsonObject, propertyName) {
 }
 
 function fetchData(url) {
-    console.log('Fetching ' + url + '...');
+    console.log('Fetching ' + url + ' ...');
     const request = new XMLHttpRequest();
     request.open('GET', url, false);
     request.send();
@@ -54,26 +54,141 @@ function getGeoNamesId(wikiDataId) {
     }
 }
 
-function retrieveExonyms() {
-    var wikiDataId = $("#wikiDataId").val();
-    var exonymsApiEndpoint = exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val();
+function transformNameToId(name) {
+    let locationId = '';
 
-    try {
-        var geoNamesId = getGeoNamesId(wikiDataId);
+    locationId = name.replace(/æ/g, 'ae')
+        .replace(/[ČčŠšŽž]/g, '$&h')
+        .replace(/[Ǧǧ]/g, 'j')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
 
-        if (geoNamesId != null) {
-            exonymsApiEndpoint = exonymsApiEndpoint + '&geoNamesId=' + geoNamesId;
+    locationId = locationId.replace(/ /g, '_')
+        .replace(/'/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-')
+        .replace(/central/g, 'centre')
+        .replace(/(north|west|south|east)ern/g, '$1')
+        .replace(/borealis/g, 'north')
+        .replace(/occidentalis/g, 'west')
+        .replace(/australis/g, 'south')
+        .replace(/orientalis/g, 'east');
+
+    for (let i = 1; i <= 2; i++) {
+        locationId = locationId.replace(/^(north|west|south|east)_(.*)$/, '$2_$1')
+            .replace(/^(lower|upper|inferior|superior)_(.*)$/, '$2_$1')
+            .replace(/^(minor|maior|lesser|greater)_(.*)$/, '$2_$1')
+            .replace(/^(centre)_(.*)$/, '$2_$1');
+    }
+
+    return locationId;
+}
+
+function getName(exonymsApiResponse, languageCode) {
+    if (exonymsApiResponse.names.hasOwnProperty(languageCode)) {
+        return exonymsApiResponse.names[languageCode];
+    }
+
+    return null;
+}
+
+function getNameLine(exonymsApiResponse, languageMcnId, languageCode) {
+    var name = getName(exonymsApiResponse, languageCode);
+
+    if (name === null) {
+        return null;
+    }
+
+    return "      <Name language=\"" + languageMcnId + "\" value=\"" + name + "\" />"
+}
+
+function getNameLine2variants(exonymsApiResponse, languageMcnId1, languageCode1, languageMcnId2, languageCode2) {
+    let name1 = getName(exonymsApiResponse, languageCode1);
+    let name2 = getName(exonymsApiResponse, languageCode2);
+
+    let nameLines = "";
+
+    if (name1 !== null && name1 !== name2) {
+        nameLines += getNameLine(exonymsApiResponse, languageMcnId1, languageCode1);
+    }
+
+    if (name2 !== null) {
+        if (nameLines.length > 0) {
+            nameLines += "\n";
         }
 
-        const response = fetchData(exonymsApiEndpoint);
-        $("#location").val(JSON.stringify(response));
-    } catch (error) {
-        console.error('Error:', error);
+        nameLines += getNameLine(exonymsApiResponse, languageMcnId2, languageCode2);
     }
+
+    return nameLines;
+}
+
+function getNameLines(exonymsApiResponse) {
+    let nameLinesArray = [];
+    let nameLines = "";
+
+    for (var languageCode in languages) {
+        nameLinesArray.push(getNameLine(exonymsApiResponse, languages[languageCode], languageCode));
+    }
+
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Belarussian_Before1933", "be-tarask", "Belarussian", "be"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Bosnian", "bs", "SerboCroatian", "sh"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Chinese", "zh-hans", "Chinese", "zh"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Croatian", "hr", "SerboCroatian", "sh"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Kurdish", "ku", "Kurdish", "ckd"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Norwegian_Nynorsk", "nn", "Norwegian", "nb"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Portuguese_Brazilian", "pt-br", "Portuguese", "pt"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Serbian", "sr-el", "SerboCroatian", "sh"));
+    nameLinesArray.push(getNameLine2variants(exonymsApiResponse, "Serbian", "sr", "SerboCroatian", "sh"));
+
+    nameLinesArray.sort();
+
+    for (let i = 0; i < nameLinesArray.length; i++) {
+        let nameLine = nameLinesArray[i];
+        if (nameLine !== null && typeof nameLine !== 'undefined' && !/^\s*$/.test(nameLine) && nameLine.length > 3) {
+            nameLines += nameLine + "\n";
+        }
+    }
+
+    return nameLines;
+}
+
+function retrieveExonyms() {
+    let wikiDataId = $("#wikiDataId").val();
+    let exonymsApiEndpoint = exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val();
+
+    let geoNamesId = getGeoNamesId(wikiDataId);
+
+    if (geoNamesId !== null) {
+        exonymsApiEndpoint = exonymsApiEndpoint + '&geoNamesId=' + geoNamesId;
+    }
+
+    let exonymsApiResponse = fetchData(exonymsApiEndpoint);
+    let mainDefaultName = exonymsApiResponse.defaultName;
+    let locationId = transformNameToId(mainDefaultName);
+
+    let location =
+        "  <LocationEntity>\n" +
+        "    <Id>" + locationId + "</Id>\n";
+    if (geoNamesId !== null) {
+        location += "    <GeoNamesId>" + geoNamesId + "</GeoNamesId>\n";
+    }
+    location +=
+        "    <WikiDataId>" + wikiDataId + "</WikiDataId>\n" +
+        "    <GameIds>\n" +
+        "    </GameIds>\n" +
+        "    <Names>\n";
+    location += getNameLines(exonymsApiResponse);
+    location +=
+        "    </Names>\n" +
+        "  </LocationEntity>"
+
+    $("#location").val(location);
 }
 
 function copyLocation() {
-    var copyText = document.getElementById("location");
+    let copyText = document.getElementById("location");
     copyText.select();
     copyText.setSelectionRange(0, 99999);
 
