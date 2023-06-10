@@ -4,9 +4,13 @@ const geoNamesBaseUrl = 'http://api.geonames.org';
 const geoNamesUsername = 'geonamesfreeaccountt';
 
 $(document).ready(function() {
+    clearPage();
+});
+
+function clearPage() {
     $('#wikiDataId').val('Q20717572');
     $('#location').val('');
-  });
+}
 
 function isSingleElementArray(jsonObject, propertyName) {
     if (jsonObject.hasOwnProperty(propertyName) && Array.isArray(jsonObject[propertyName])) {
