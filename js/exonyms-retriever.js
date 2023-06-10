@@ -1,18 +1,65 @@
 const exonymsApiBaseUrl = 'http://hmlendea-exonyms.duckdns.org:8263/Exonyms';
+const geoNamesBaseUrl = 'http://api.geonames.org';
+const wikiDataBaseUrl = 'https://www.wikidata.org';
+
+function isSingleElementArray(jsonObject, propertyName) {
+    if (jsonObject.hasOwnProperty(propertyName) && Array.isArray(jsonObject[propertyName])) {
+        return jsonObject[propertyName].length === 1;
+    } else {
+        return false;
+    }
+}
+
+function fetchData(url) {
+    console.log('Fetching ' + url + '...');
+    const request = new XMLHttpRequest();
+    request.open('GET', url, false);
+    request.send();
+
+    if (request.status === 200) {
+        return JSON.parse(request.responseText);
+    } else {
+        throw new Error(`Request failed with status ${request.status}`);
+    }
+}
+
+function getGeoNamesId(wikiDataId) {
+    var wikiDataEndpoint = wikiDataBaseUrl + '/wiki/Special:EntityData/' + wikiDataId + '.json';
+
+    try {
+        var response = fetchData(wikiDataEndpoint);
+        var claims = response.entities[wikiDataId].claims;
+
+        if (isSingleElementArray(claims, 'P1566')) {
+            var geoNamesId = claims['P1566'][0].mainsnak.datavalue.value;
+
+            console.log('Found GeoNames ID: ' + geoNamesId);
+            return geoNamesId;
+        }
+
+        return null;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+}
 
 function retrieveExonyms() {
-    var url = exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val();
+    var wikiDataId = $("#wikiDataId").val();
+    var exonymsApiEndpoint = exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val();
 
-    console.log("Fetching " + url + "...");
-    fetch(exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val(), { method: 'GET', })
-        .then(response => response.json())
-        .then(data => {
-            var jsonContent = JSON.stringify(data);
-            $("#location").val(jsonContent);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    try {
+        var geoNamesId = getGeoNamesId(wikiDataId);
+
+        if (geoNamesId != null) {
+            exonymsApiEndpoint = exonymsApiEndpoint + '&geoNamesId=' + geoNamesId;
+        }
+
+        const response = fetchData(exonymsApiEndpoint);
+        $("#location").val(JSON.stringify(response));
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
 function copyLocation() {
