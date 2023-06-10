@@ -1,6 +1,7 @@
 const exonymsApiBaseUrl = 'http://hmlendea-exonyms.duckdns.org:8263/Exonyms';
-const geoNamesBaseUrl = 'http://api.geonames.org';
 const wikiDataBaseUrl = 'https://www.wikidata.org';
+const geoNamesBaseUrl = 'http://api.geonames.org';
+const geoNamesUsername = 'geonamesfreeaccountt';
 
 function isSingleElementArray(jsonObject, propertyName) {
     if (jsonObject.hasOwnProperty(propertyName) && Array.isArray(jsonObject[propertyName])) {
@@ -24,17 +25,26 @@ function fetchData(url) {
 }
 
 function getGeoNamesId(wikiDataId) {
-    var wikiDataEndpoint = wikiDataBaseUrl + '/wiki/Special:EntityData/' + wikiDataId + '.json';
-
     try {
-        var response = fetchData(wikiDataEndpoint);
-        var claims = response.entities[wikiDataId].claims;
+        var wikiDataEndpoint = wikiDataBaseUrl + '/wiki/Special:EntityData/' + wikiDataId + '.json';
+        var wikiDataResponse = fetchData(wikiDataEndpoint);
+        var claims = wikiDataResponse.entities[wikiDataId].claims;
 
         if (isSingleElementArray(claims, 'P1566')) {
             var geoNamesId = claims['P1566'][0].mainsnak.datavalue.value;
 
-            console.log('Found GeoNames ID: ' + geoNamesId);
+            console.log('Found GeoNames ID by searching on WikiData: ' + geoNamesId);
             return geoNamesId;
+        } else {
+            var geoNamesEndpoint = geoNamesBaseUrl + '/searchJSON?username=' + geoNamesUsername + '&q=' + wikiDataId;
+            var geoNamesResponse = fetchData(geoNamesEndpoint);
+
+            if (geoNamesResponse.totalResultsCount.value === 1) {
+                var geoNamesId = geoNamesResponse.geonames[0].geonameId;
+
+                console.log('Found GeoNames ID by searching on GeoNames: ' + geoNamesId);
+                return geoNamesId;
+            }
         }
 
         return null;
