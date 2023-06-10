@@ -1,4 +1,4 @@
-const exonymsApiBaseUrl = 'http://hmlendea-exonyms.duckdns.org:8263/Exonyms';
+const exonymsApiBaseUrl = 'https://hmlendea.go.ro/apis/exonyms-api';
 const wikiDataBaseUrl = 'https://www.wikidata.org';
 const geoNamesBaseUrl = 'http://api.geonames.org';
 const geoNamesUsername = 'geonamesfreeaccountt';
@@ -165,7 +165,7 @@ function getNameLines(exonymsApiResponse) {
 
 function retrieveExonyms() {
     let wikiDataId = $("#wikiDataId").val();
-    let exonymsApiEndpoint = exonymsApiBaseUrl + "?wikiDataId=" + $("#wikiDataId").val();
+    let exonymsApiEndpoint = exonymsApiBaseUrl + "/Exonyms?wikiDataId=" + $("#wikiDataId").val();
 
     let geoNamesId = getGeoNamesId(wikiDataId);
 
