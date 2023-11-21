@@ -96,7 +96,7 @@ function transformNameToId(name) {
 
 function getName(exonymsApiResponse, languageCode) {
     if (exonymsApiResponse.names.hasOwnProperty(languageCode)) {
-        return exonymsApiResponse.names[languageCode];
+        return exonymsApiResponse.names[languageCode].value;
     }
 
     return null;
