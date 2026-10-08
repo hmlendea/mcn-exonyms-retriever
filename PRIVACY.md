@@ -1,5 +1,3 @@
-<!-- BEGIN PRIVACY TEMPLATE IMMUTABLE -->
-
 # Privacy and Personal Data
 
 This document describes the data-handling behaviour of the MCN Exonyms Retriever, a static web tool that retrieves exonym data for Minecraft locations from public APIs. The tool runs entirely in the browser, stores no personal data, and transmits no data to the project maintainers.
@@ -92,5 +90,3 @@ Update this document when application data flows, storage, integrations, or depl
 ## 📬 Contact
 
 For questions about application data handling, contact the project maintainers via GitHub issues at https://github.com/hmlendea/mcn-exonyms-retriever/issues. For a self-hosted instance, contact the instance operator. Include the WikiData ID used and the approximate time of the request if relevant; do not send passwords, access tokens, or other secrets.
-
-<!-- END PRIVACY TEMPLATE IMMUTABLE -->
