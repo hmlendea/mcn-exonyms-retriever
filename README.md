@@ -46,6 +46,14 @@ When doing so, please:
 
 If you encounter an issue, please open a ticket in the GitHub repository. For general questions, feel free to reach out via the project's discussion forum or contact the maintainer directly.
 
+## 🔒 Privacy
+
+See [PRIVACY.md](./PRIVACY.md) for data-handling details.
+
+## 🛡️ Security
+
+See [SECURITY.md](./SECURITY.md) for vulnerability reporting and supported versions.
+
 ## 📄 License
 
 This project is being distributed under the `GNU General Public Licence v3` or later.
