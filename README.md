@@ -54,6 +54,10 @@ See [PRIVACY.md](./PRIVACY.md) for data-handling details.
 
 See [SECURITY.md](./SECURITY.md) for vulnerability reporting and supported versions.
 
+## 🏗️ Architecture
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for system architecture, data flows, and deployment details.
+
 ## 📄 License
 
 This project is being distributed under the `GNU General Public Licence v3` or later.
