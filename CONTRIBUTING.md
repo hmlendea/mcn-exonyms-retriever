@@ -11,6 +11,7 @@ This document covers the guidelines and processes for contributing to this proje
     - [Development Setup](#development-setup)
     - [Making Changes](#making-changes)
     - [Pull Request Guidelines](#pull-request-guidelines)
+- [Code of Conduct](#code-of-conduct)
 - [Security](#security)
 - [License](#license)
 
@@ -56,6 +57,10 @@ cd mcn-exonyms-retriever
 - Keep PRs focused and atomic.
 - Revise documentation if applicable.
 - Ensure the CI checks pass.
+
+## 📜 Code of Conduct
+
+This project follows the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## 🔒 Security
 

@@ -11,6 +11,7 @@ The **mcn‑exonyms‑retriever** is a lightweight web tool that fetches exonym 
 - [Usage](#usage)
 - [Known Limitations](#known-limitations)
 - [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
 - [Support](#support)
 - [License](#license)
 
@@ -57,6 +58,10 @@ See [SECURITY.md](./SECURITY.md) for vulnerability reporting and supported versi
 ## 🏗️ Architecture
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for system architecture, data flows, and deployment details.
+
+## 📜 Code of Conduct
+
+See the [Code of Conduct](./CODE_OF_CONDUCT.md) for the standards of conduct expected in all project spaces.
 
 ## 📄 License
 
