@@ -34,17 +34,17 @@ https://hmlendea.github.io/mcn-exonyms-retriever/index.html
 - GeoNames lookup may return `null` for some WikiData IDs.
 
 ## 🤝 Contributing
-You are welcome to bring any suggestion, feedback or modification to this project.
+
+You are welcome to submit any suggestion, feedback, or modification to this project.
 
 When doing so, please:
-- Maintain cross‑platform compatibility.
-- Maintain the pull requests as focused and consistent with the existing code style.
-- Maintain your branch up‑to‑date with `master`.
-- Revise the documentation when behaviour changes.
+- Maintain cross-platform compatibility
+- Submit focused pull requests that conform to the existing code style
+- Maintain your branch synchronised with `master`
+- Revise the documentation when functionality changes
+- Raise a new [issue](https://github.com/hmlendea/mcn-exonyms-retriever/issues) for problems or suggestions
 
-## 💝 Helping out
-
-If you encounter an issue, please open a ticket in the GitHub repository. For general questions, feel free to reach out via the project's discussion forum or contact the maintainer directly.
+See the [Contributing Guidelines](./CONTRIBUTING.md) for details on how to report issues, suggest enhancements, and submit changes.
 
 ## 🔒 Privacy
 
