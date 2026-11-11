@@ -81,7 +81,7 @@ This document records key architectural and design choices with their rationale.
 - Large CSS/JS payload (~50KB gzipped CSS + JS)
 - Bootstrap 4 is EOL (v5 is current)
 - jQuery dependency required
-- Custom CSS (`custom.css`) is minimal/empty
+- Custom CSS (`custom.css`) limited to label typography and the fixed in-page "Source code" and "Donate" links
 
 ## 6. Hardcoded API endpoints and credentials
 
