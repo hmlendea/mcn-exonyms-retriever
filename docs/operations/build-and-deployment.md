@@ -77,7 +77,7 @@
 |-----|-----|---------|
 | Exonyms | `hmlendea.go.ro` | Exonym data |
 | WikiData | `wikidata.org` | GeoNames ID lookup |
-| GeoNames | `api.geonames.org` | Fallback GeoNames ID |
+| GeoNames | `secure.geonames.org` | Fallback GeoNames ID |
 
 ## No build configuration
 

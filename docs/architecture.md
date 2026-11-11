@@ -95,7 +95,7 @@ flowchart TD
 **Internal constants:**
 - `exonymsApiBaseUrl` — `https://exonyms.nucilandia.ro`
 - `wikiDataBaseUrl` — `https://www.wikidata.org`
-- `geoNamesBaseUrl` — `http://api.geonames.org`
+- `geoNamesBaseUrl` — `https://secure.geonames.org`
 - `geoNamesUsername` — `geonamesfreeaccountt`
 
 ### Language data (`js/languages.js`)

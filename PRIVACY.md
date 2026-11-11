@@ -28,7 +28,7 @@ Instance operators control their deployment's configuration, local storage, logs
 The application makes the following network requests from the user's browser:
 - Exonyms API at `https://exonyms.nucilandia.ro` (maintainer-operated public API)
 - WikiData at `https://www.wikidata.org` (public API)
-- GeoNames at `http://api.geonames.org` (public API, uses a shared demo account)
+- GeoNames at `https://secure.geonames.org` (public API, uses a shared demo account)
 - CDN resources: jQuery, Bootstrap, Font Awesome, Google Fonts, StartBootstrap assets
 
 Operators who self-host may replace or proxy any of these endpoints by modifying the source code. No telemetry, update checks, crash reports, or authentication flows are built into the application.
@@ -69,7 +69,7 @@ The application processes the data described above for these verified functions:
 |-----------------------|---------|---------------|--------------------------------|
 | Exonyms API (`exonyms.nucilandia.ro`) | Retrieve exonym names for a WikiData ID | WikiData ID (public) | https://exonyms.nucilandia.ro |
 | WikiData (`wikidata.org`) | Resolve WikiData ID to GeoNames ID via entity claims | WikiData ID (public) | https://www.wikidata.org/wiki/Wikidata:Data_access |
-| GeoNames (`api.geonames.org`) | Fallback GeoNames lookup by WikiData ID | WikiData ID (public) | http://www.geonames.org/export/web-services.html |
+| GeoNames (`secure.geonames.org`) | Fallback GeoNames lookup by WikiData ID | WikiData ID (public) | http://www.geonames.org/export/web-services.html |
 | jQuery CDN (`code.jquery.com`) | JavaScript library | None (static asset) | https://code.jquery.com/ |
 | Bootstrap CDN (`cdn.jsdelivr.net`) | CSS/JS framework | None (static asset) | https://getbootstrap.com/ |
 | Font Awesome (`use.fontawesome.com`) | Icon font | None (static asset) | https://fontawesome.com/ |

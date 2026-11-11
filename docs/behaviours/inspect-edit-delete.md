@@ -22,7 +22,7 @@ The application has minimal inspect/edit/delete capabilities. It is a read-only 
 languages                    // View language mapping object
 exonymsApiBaseUrl            // "https://exonyms.nucilandia.ro"
 wikiDataBaseUrl              // "https://www.wikidata.org"
-geoNamesBaseUrl              // "http://api.geonames.org"
+geoNamesBaseUrl              // "https://secure.geonames.org"
 geoNamesUsername             // "geonamesfreeaccountt"
 $('#wikiDataId').val()       // Current input value
 $('#location').val()         // Current output value

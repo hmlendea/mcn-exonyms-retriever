@@ -179,7 +179,7 @@ Enabled for `Special:EntityData`
 
 ### Base URL
 ```
-http://api.geonames.org
+https://secure.geonames.org
 ```
 
 ### Endpoint
@@ -196,7 +196,7 @@ GET /searchJSON
 
 ### Request example
 ```
-http://api.geonames.org/searchJSON?username=geonamesfreeaccountt&q=Q20717572
+https://secure.geonames.org/searchJSON?username=geonamesfreeaccountt&q=Q20717572
 ```
 
 ### Response schema
@@ -233,7 +233,7 @@ http://api.geonames.org/searchJSON?username=geonamesfreeaccountt&q=Q20717572
 ### Extraction logic
 
 ```javascript
-if (geoNamesResponse.totalResultsCount.value === 1) {
+if (geoNamesResponse.totalResultsCount === 1) {
     var geoNamesId = geoNamesResponse.geonames[0].geonameId;
     return geoNamesId;
 }
