@@ -93,7 +93,7 @@ flowchart TD
 | `isSingleElementArray(obj, prop)` | Utility: check if property is single-element array |
 
 **Internal constants:**
-- `exonymsApiBaseUrl` — `https://hmlendea.go.ro/apis/exonyms-api`
+- `exonymsApiBaseUrl` — `https://exonyms.nucilandia.ro`
 - `wikiDataBaseUrl` — `https://www.wikidata.org`
 - `geoNamesBaseUrl` — `http://api.geonames.org`
 - `geoNamesUsername` — `geonamesfreeaccountt`

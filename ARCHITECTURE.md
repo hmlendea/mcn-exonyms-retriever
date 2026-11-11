@@ -151,7 +151,7 @@ flowchart LR
 
 | Interface or Integration | Direction | Contract | Owner | Failure Semantics |
 |--------------------------|-----------|----------|-------|-------------------|
-| Exonyms API | Outbound | HTTP GET to `https://hmlendea.go.ro/apis/exonyms-api/Exonyms?wikiDataId=Q...` | exonyms-retriever.js | Throws error on non-200 status; caught and logged to console |
+| Exonyms API | Outbound | HTTP GET to `https://exonyms.nucilandia.ro/Exonyms?wikiDataId=Q...` | exonyms-retriever.js | Throws error on non-200 status; caught and logged to console |
 | WikiData API | Outbound | HTTP GET to `https://www.wikidata.org/wiki/Special:EntityData/Q....json` | exonyms-retriever.js | Throws error on non-200 status; caught and logged to console |
 | GeoNames API | Outbound | HTTP GET to `http://api.geonames.org/searchJSON?username=...&q=Q...` | exonyms-retriever.js | Returns null if no match; caught and logged to console |
 | jQuery | Inbound | Loaded from CDN; provides `$` selector and event handling | index.html | Application fails if jQuery fails to load |

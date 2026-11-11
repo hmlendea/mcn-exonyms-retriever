@@ -28,7 +28,7 @@ Core application logic: API orchestration, data transformation, XML generation, 
 
 | Constant | Value | Description |
 |----------|-------|-------------|
-| `exonymsApiBaseUrl` | `'https://hmlendea.go.ro/apis/exonyms-api'` | Exonyms API base |
+| `exonymsApiBaseUrl` | `'https://exonyms.nucilandia.ro'` | Exonyms API base |
 | `wikiDataBaseUrl` | `'https://www.wikidata.org'` | WikiData API base |
 | `geoNamesBaseUrl` | `'http://api.geonames.org'` | GeoNames API base |
 | `geoNamesUsername` | `'geonamesfreeaccountt'` | GeoNames demo account |

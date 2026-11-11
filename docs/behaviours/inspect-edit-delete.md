@@ -20,7 +20,7 @@ The application has minimal inspect/edit/delete capabilities. It is a read-only 
 ```javascript
 // In browser console:
 languages                    // View language mapping object
-exonymsApiBaseUrl            // "https://hmlendea.go.ro/apis/exonyms-api"
+exonymsApiBaseUrl            // "https://exonyms.nucilandia.ro"
 wikiDataBaseUrl              // "https://www.wikidata.org"
 geoNamesBaseUrl              // "http://api.geonames.org"
 geoNamesUsername             // "geonamesfreeaccountt"

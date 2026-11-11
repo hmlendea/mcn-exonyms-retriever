@@ -16,7 +16,7 @@ The **mcn‑exonyms‑retriever** is a lightweight web tool that fetches exonym 
 - [License](#license)
 
 ## ✨ Features
-- Retrieve exonyms in multiple languages from the [Exonyms API](https://hmlendea.go.ro/apis/exonyms-api).
+- Retrieve exonyms in multiple languages from the [Exonyms API](https://exonyms.nucilandia.ro).
 - Resolve a WikiData ID to a GeoNames ID via the Wikidata or GeoNames services.
 - Generate an XML snippet that can be pasted into MCN configuration files.
 

@@ -32,7 +32,7 @@ languages["be-tarask"] // "Belarussian_Before1933"
 
 **Type:** `string`
 
-**Value:** `"https://hmlendea.go.ro/apis/exonyms-api"`
+**Value:** `"https://exonyms.nucilandia.ro"`
 
 **Description:** Base URL for the Exonyms API.
 
