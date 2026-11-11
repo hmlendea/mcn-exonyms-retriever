@@ -17,7 +17,7 @@
 
 | API | Endpoint | Protocol | Auth | Purpose |
 |-----|----------|----------|------|---------|
-| Exonyms API | `https://hmlendea.go.ro/apis/exonyms-api/Exonyms` | HTTPS | None | Retrieve exonym names for WikiData ID |
+| Exonyms API | `https://exonyms.nucilandia.ro/Exonyms` | HTTPS | None | Retrieve exonym names for WikiData ID |
 | WikiData | `https://www.wikidata.org/wiki/Special:EntityData/{id}.json` | HTTPS | None | Resolve WikiData ID to GeoNames ID via P1566 claim |
 | GeoNames | `http://api.geonames.org/searchJSON` | HTTP | Username (`geonamesfreeaccountt`) | Fallback GeoNames ID lookup |
 

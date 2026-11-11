@@ -26,7 +26,7 @@ This project is a static HTML/JavaScript application that can be deployed and op
 Instance operators control their deployment's configuration, local storage, logs, backups, access controls, retention, and request handling. The project maintainers do not receive any data from self-hosted instances.
 
 The application makes the following network requests from the user's browser:
-- Exonyms API at `https://hmlendea.go.ro/apis/exonyms-api` (maintainer-operated public API)
+- Exonyms API at `https://exonyms.nucilandia.ro` (maintainer-operated public API)
 - WikiData at `https://www.wikidata.org` (public API)
 - GeoNames at `http://api.geonames.org` (public API, uses a shared demo account)
 - CDN resources: jQuery, Bootstrap, Font Awesome, Google Fonts, StartBootstrap assets
@@ -67,7 +67,7 @@ The application processes the data described above for these verified functions:
 
 | Service or integration | Purpose | Data involved | Configuration or documentation |
 |-----------------------|---------|---------------|--------------------------------|
-| Exonyms API (`hmlendea.go.ro/apis/exonyms-api`) | Retrieve exonym names for a WikiData ID | WikiData ID (public) | https://hmlendea.go.ro/apis/exonyms-api |
+| Exonyms API (`exonyms.nucilandia.ro`) | Retrieve exonym names for a WikiData ID | WikiData ID (public) | https://exonyms.nucilandia.ro |
 | WikiData (`wikidata.org`) | Resolve WikiData ID to GeoNames ID via entity claims | WikiData ID (public) | https://www.wikidata.org/wiki/Wikidata:Data_access |
 | GeoNames (`api.geonames.org`) | Fallback GeoNames lookup by WikiData ID | WikiData ID (public) | http://www.geonames.org/export/web-services.html |
 | jQuery CDN (`code.jquery.com`) | JavaScript library | None (static asset) | https://code.jquery.com/ |

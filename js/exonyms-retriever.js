@@ -1,4 +1,4 @@
-const exonymsApiBaseUrl = 'https://hmlendea.go.ro/apis/exonyms-api';
+const exonymsApiBaseUrl = 'https://exonyms.nucilandia.ro';
 const wikiDataBaseUrl = 'https://www.wikidata.org';
 const geoNamesBaseUrl = 'http://api.geonames.org';
 const geoNamesUsername = 'geonamesfreeaccountt';

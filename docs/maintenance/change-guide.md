@@ -90,7 +90,7 @@ Guide for making changes to the codebase safely and consistently.
 const exonymsApiBaseUrl = 'https://hmlendea.go.ro/apis/exonyms-api';
 
 // After
-const exonymsApiBaseUrl = 'https://new-api.example.com';
+const exonymsApiBaseUrl = 'https://exonyms.nucilandia.ro';
 ```
 
 **Verification:**

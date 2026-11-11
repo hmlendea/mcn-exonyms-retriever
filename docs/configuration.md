@@ -16,7 +16,7 @@ The application has **no formal configuration system**. All configurable values 
 
 | Constant | Value | Description | Change impact |
 |----------|-------|-------------|---------------|
-| `exonymsApiBaseUrl` | `'https://hmlendea.go.ro/apis/exonyms-api'` | Exonyms API base URL | All exonym requests redirect |
+| `exonymsApiBaseUrl` | `'https://exonyms.nucilandia.ro'` | Exonyms API base URL | All exonym requests redirect |
 | `wikiDataBaseUrl` | `'https://www.wikidata.org'` | WikiData API base URL | GeoNames resolution via WikiData redirects |
 | `geoNamesBaseUrl` | `'http://api.geonames.org'` | GeoNames API base URL | Fallback GeoNames lookup redirects |
 | `geoNamesUsername` | `'geonamesfreeaccountt'` | GeoNames API username | Rate limits / auth changes affect fallback |

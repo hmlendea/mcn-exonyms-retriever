@@ -38,7 +38,7 @@ Browser (user)
         ├── js/exonyms-retriever.js (application logic)
         ├── js/languages.js (reference data)
         ├── CDN: jQuery, Bootstrap, Font Awesome, Google Fonts, StartBootstrap
-        ├── Exonyms API (https://hmlendea.go.ro/apis/exonyms-api)
+        ├── Exonyms API (https://exonyms.nucilandia.ro)
         ├── WikiData API (https://www.wikidata.org)
         └── GeoNames API (http://api.geonames.org)
 ```

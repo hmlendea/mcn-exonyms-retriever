@@ -100,7 +100,7 @@ let wikiDataId = $("#wikiDataId").val();
 let exonymsApiEndpoint = exonymsApiBaseUrl + "/Exonyms?wikiDataId=" + $("#wikiDataId").val();
 ```
 
-- `exonymsApiBaseUrl` = `'https://hmlendea.go.ro/apis/exonyms-api'`
+- `exonymsApiBaseUrl` = `'https://exonyms.nucilandia.ro'`
 - WikiData ID interpolated directly (no encoding)
 
 ### Step 3: Resolve GeoNames ID

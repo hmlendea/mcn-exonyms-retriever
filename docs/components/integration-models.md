@@ -8,7 +8,7 @@ The application integrates with three external HTTP APIs. All calls are synchron
 
 ### Base URL
 ```
-https://hmlendea.go.ro/apis/exonyms-api
+https://exonyms.nucilandia.ro
 ```
 
 ### Endpoint
@@ -25,7 +25,7 @@ GET /Exonyms?wikiDataId={wikiDataId}[&geoNamesId={geoNamesId}]
 
 ### Request example
 ```
-https://hmlendea.go.ro/apis/exonyms-api/Exonyms?wikiDataId=Q20717572&geoNamesId=683506
+https://exonyms.nucilandia.ro/Exonyms?wikiDataId=Q20717572&geoNamesId=683506
 ```
 
 ### Response schema
