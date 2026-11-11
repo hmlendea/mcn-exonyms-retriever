@@ -77,7 +77,7 @@ mcn-exonyms-retriever/
 
 | File | Purpose |
 |------|---------|
-| `custom.css` | Project-specific CSS customisations (currently minimal/empty) |
+| `custom.css` | Project-specific CSS customisations (label typography, fixed in-page "Source code" and "Donate" links) |
 
 ### `.github/` — GitHub configuration
 

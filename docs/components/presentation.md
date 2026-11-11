@@ -146,7 +146,7 @@ Runs after all scripts loaded and DOM parsed. Sets default WikiData ID and clear
 - **StartBootstrap Freelancer** — Template styles (`styles.css`)
 - **Font Awesome 6.4.0** — Icons (`fa-github`, `fa-location-dot`, `fa-code`, `fa-cogs`, `fa-trash`, `fa-copy`)
 - **Google Fonts** — Montserrat (headings), Lato (body)
-- **Custom CSS** — `css/custom.css` (currently minimal)
+- **Custom CSS** — `css/custom.css` (label typography plus fixed in-page "Source code" and "Donate" links)
 
 ## Responsive behaviour
 
