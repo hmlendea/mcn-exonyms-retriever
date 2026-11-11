@@ -56,7 +56,7 @@ languages["be-tarask"] // "Belarussian_Before1933"
 
 **Type:** `string`
 
-**Value:** `"http://api.geonames.org"`
+**Value:** `"https://secure.geonames.org"`
 
 **Description:** Base URL for the GeoNames API. **Note: HTTP, not HTTPS.**
 

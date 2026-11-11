@@ -30,7 +30,7 @@ Core application logic: API orchestration, data transformation, XML generation, 
 |----------|-------|-------------|
 | `exonymsApiBaseUrl` | `'https://exonyms.nucilandia.ro'` | Exonyms API base |
 | `wikiDataBaseUrl` | `'https://www.wikidata.org'` | WikiData API base |
-| `geoNamesBaseUrl` | `'http://api.geonames.org'` | GeoNames API base |
+| `geoNamesBaseUrl` | `'https://secure.geonames.org'` | GeoNames API base |
 | `geoNamesUsername` | `'geonamesfreeaccountt'` | GeoNames demo account |
 
 ## Function details
@@ -117,7 +117,7 @@ function getGeoNamesId(wikiDataId) {
             var geoNamesEndpoint = geoNamesBaseUrl + '/searchJSON?username=' + geoNamesUsername + '&q=' + wikiDataId;
             var geoNamesResponse = fetchData(geoNamesEndpoint);
 
-            if (geoNamesResponse.totalResultsCount.value === 1) {
+            if (geoNamesResponse.totalResultsCount === 1) {
                 var geoNamesId = geoNamesResponse.geonames[0].geonameId;
                 console.log('Found GeoNames ID by searching on GeoNames: ' + geoNamesId);
                 return geoNamesId;

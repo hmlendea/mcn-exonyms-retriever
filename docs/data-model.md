@@ -51,7 +51,7 @@
 **Schema:**
 ```json
 {
-  "totalResultsCount": { "value": "number" },
+  "totalResultsCount": "number",
   "geonames": [
     {
       "geonameId": "number",
@@ -63,7 +63,7 @@
 }
 ```
 
-**Usage:** Fallback when WikiData has no P1566 claim. Only used when `totalResultsCount.value === 1`.
+**Usage:** Fallback when WikiData has no P1566 claim. Only used when `totalResultsCount === 1`.
 
 ## Output XML schema
 

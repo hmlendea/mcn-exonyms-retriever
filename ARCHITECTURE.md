@@ -43,7 +43,7 @@ flowchart LR
 The principal external boundaries are:
 - **Exonyms API (`hmlendea.go.ro`):** Outbound request to retrieve exonym names for a WikiData ID. The API returns JSON with localized names.
 - **WikiData (`wikidata.org`):** Outbound request to resolve a WikiData entity ID to a GeoNames ID via entity claims.
-- **GeoNames (`api.geonames.org`):** Outbound fallback request to resolve a WikiData ID to a GeoNames ID. Uses a shared demo account.
+- **GeoNames (`secure.geonames.org`):** Outbound fallback request to resolve a WikiData ID to a GeoNames ID. Uses a shared demo account.
 - **CDN resources:** Static assets (jQuery, Bootstrap, Font Awesome, Google Fonts, StartBootstrap) loaded from third-party CDNs.
 
 ## 🏗️ Architectural Style
@@ -153,7 +153,7 @@ flowchart LR
 |--------------------------|-----------|----------|-------|-------------------|
 | Exonyms API | Outbound | HTTP GET to `https://exonyms.nucilandia.ro/Exonyms?wikiDataId=Q...` | exonyms-retriever.js | Throws error on non-200 status; caught and logged to console |
 | WikiData API | Outbound | HTTP GET to `https://www.wikidata.org/wiki/Special:EntityData/Q....json` | exonyms-retriever.js | Throws error on non-200 status; caught and logged to console |
-| GeoNames API | Outbound | HTTP GET to `http://api.geonames.org/searchJSON?username=...&q=Q...` | exonyms-retriever.js | Returns null if no match; caught and logged to console |
+| GeoNames API | Outbound | HTTP GET to `https://secure.geonames.org/searchJSON?username=...&q=Q...` | exonyms-retriever.js | Returns null if no match; caught and logged to console |
 | jQuery | Inbound | Loaded from CDN; provides `$` selector and event handling | index.html | Application fails if jQuery fails to load |
 | Bootstrap | Inbound | Loaded from CDN; provides CSS and JS components | index.html | UI degrades gracefully if CSS fails to load |
 
@@ -245,7 +245,7 @@ The principal dependency rules are:
 | Google Fonts | Web fonts (Montserrat, Lato) | Loaded from `fonts.googleapis.com` | Fonts fall back to system defaults |
 | StartBootstrap Freelancer | Template CSS and JS | Loaded from `startbootstrap.github.io` | Template styling and scroll behavior |
 | WikiData API | Resolve WikiData IDs to GeoNames IDs | `www.wikidata.org` | Public API; no authentication required |
-| GeoNames API | Fallback GeoNames ID resolution | `api.geonames.org` | Uses shared demo account; HTTP only |
+| GeoNames API | Fallback GeoNames ID resolution | `secure.geonames.org` | Uses shared demo account; HTTPS only |
 | Exonyms API | Retrieve exonym names | `hmlendea.go.ro` | Maintainer-operated public API |
 
 ## 🚀 Deployment and Operations

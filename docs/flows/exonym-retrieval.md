@@ -133,13 +133,13 @@ if (isSingleElementArray(claims, 'P1566')) {
 var geoNamesEndpoint = geoNamesBaseUrl + '/searchJSON?username=' + geoNamesUsername + '&q=' + wikiDataId;
 var geoNamesResponse = fetchData(geoNamesEndpoint);
 
-if (geoNamesResponse.totalResultsCount.value === 1) {
+if (geoNamesResponse.totalResultsCount === 1) {
     var geoNamesId = geoNamesResponse.geonames[0].geonameId;
     return geoNamesId;
 }
 ```
 
-- `geoNamesBaseUrl` = `'http://api.geonames.org'` (HTTP!)
+- `geoNamesBaseUrl` = `'https://secure.geonames.org'`
 - `geoNamesUsername` = `'geonamesfreeaccountt'`
 - Search query = WikiData ID (not a place name)
 - Requires exactly one result

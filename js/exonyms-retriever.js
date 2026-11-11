@@ -1,6 +1,6 @@
 const exonymsApiBaseUrl = 'https://exonyms.nucilandia.ro';
 const wikiDataBaseUrl = 'https://www.wikidata.org';
-const geoNamesBaseUrl = 'http://api.geonames.org';
+const geoNamesBaseUrl = 'https://secure.geonames.org';
 const geoNamesUsername = 'geonamesfreeaccountt';
 
 $(document).ready(function() {
@@ -48,7 +48,7 @@ function getGeoNamesId(wikiDataId) {
             var geoNamesEndpoint = geoNamesBaseUrl + '/searchJSON?username=' + geoNamesUsername + '&q=' + wikiDataId;
             var geoNamesResponse = fetchData(geoNamesEndpoint);
 
-            if (geoNamesResponse.totalResultsCount.value === 1) {
+            if (geoNamesResponse.totalResultsCount === 1) {
                 var geoNamesId = geoNamesResponse.geonames[0].geonameId;
 
                 console.log('Found GeoNames ID by searching on GeoNames: ' + geoNamesId);

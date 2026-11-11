@@ -40,7 +40,7 @@ Browser (user)
         ├── CDN: jQuery, Bootstrap, Font Awesome, Google Fonts, StartBootstrap
         ├── Exonyms API (https://exonyms.nucilandia.ro)
         ├── WikiData API (https://www.wikidata.org)
-        └── GeoNames API (http://api.geonames.org)
+        └── GeoNames API (https://secure.geonames.org)
 ```
 
 ## Key capabilities
